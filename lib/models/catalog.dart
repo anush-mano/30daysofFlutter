@@ -1,5 +1,19 @@
+class CatalogModel {
+  static final items = [
+    Item(
+      id: 1,
+      name: "iPhone 12 Pro",
+      desc: "Apple iPhone 12th generation",
+      price: 999,
+      color: "#33505a",
+      image:
+          "https://in.static.webuy.com/product_images/Phones/Phones%20iPhone/SAPPI12P128GPBUNLB_l.jpg",
+    ),
+  ];
+}
+
 class Item {
-  final String id;
+  final int id;
   final String name;
   final String desc;
   final num price;
@@ -15,15 +29,3 @@ class Item {
     required this.image,
   });
 }
-
-final products = [
-  Item(
-    id: "Codepur001",
-    name: "iPhone 12 Pro",
-    desc: "Apple iPhone 12th generation",
-    price: 999,
-    color: "#33505a",
-    image:
-        "https://in.static.webuy.com/product_images/Phones/Phones%20iPhone/SAPPI12P128GPBUNLB_l.jpg",
-  ),
-];
