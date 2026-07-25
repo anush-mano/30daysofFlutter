@@ -11,6 +11,9 @@ class MyTheme {
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: darkBluishColor,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(backgroundColor: darkBluishColor),
+    ),
     appBarTheme: AppBarTheme(
       color: Colors.black,
       elevation: 0.0,
@@ -25,6 +28,9 @@ class MyTheme {
     canvasColor: darkCreamColor,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: lightBluishColor,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(backgroundColor: lightBluishColor),
     ),
     appBarTheme: AppBarTheme(
       color: Colors.white,
