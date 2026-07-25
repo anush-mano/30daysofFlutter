@@ -13,9 +13,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -25,7 +25,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
-                  MyTheme.darkBluishColor,
+                  Theme.of(context).floatingActionButtonTheme.backgroundColor,
                 ),
                 shape: MaterialStateProperty.all(StadiumBorder()),
               ),
@@ -48,12 +48,12 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.convey,
                 edge: VxEdge.top,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       catalog.name.text.lg.xl4
-                          .color(MyTheme.darkBluishColor)
+                          .color(Theme.of(context).colorScheme.onSurface)
                           .bold
                           .make(),
                       catalog.desc.text
