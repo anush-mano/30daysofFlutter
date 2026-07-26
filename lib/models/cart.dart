@@ -1,12 +1,14 @@
 import 'package:flutter_catalog/models/catalog.dart';
 
 class CartModel {
+  static final cartModel = CartModel._internal();
+  CartModel._internal();
+  factory CartModel() => cartModel;
   //Catalog field
-  CatalogModel _catalog;
+  late CatalogModel _catalog;
 
   //Collection of ID's=Stores id of each item
   final List<int> _itemIds = [];
-  CartModel(this._catalog);
 
   CatalogModel get catalog => _catalog;
 
