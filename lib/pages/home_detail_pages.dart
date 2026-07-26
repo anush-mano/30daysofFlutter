@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/widgets/home_widget/add_to_cart.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -21,16 +22,7 @@ class HomeDetailPage extends StatelessWidget {
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catalog.price}".text.bold.xl3.red500.make(),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Theme.of(context).floatingActionButtonTheme.backgroundColor,
-                ),
-                shape: MaterialStateProperty.all(StadiumBorder()),
-              ),
-              child: "Add to cart".text.white.make(),
-            ).wh(130, 40),
+            AddToCart(catalog: catalog).wh(130, 40),
           ],
         ).p16(),
       ),
