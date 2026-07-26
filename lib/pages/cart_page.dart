@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/core/store.dart';
 import 'package:flutter_catalog/models/cart.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -22,7 +23,8 @@ class CartPage extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    VxState.watch(context, on: [RemoveMutation]);
+    final CartModel _cart = (VxState.store as MyStore).cart;
 
     return SizedBox(
       height: 200,
@@ -46,15 +48,11 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  @override
-  State<_CartList> createState() => __CartListState();
-}
-
-class __CartListState extends State<_CartList> {
-  final _cart = CartModel();
+class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return _cart.items.isEmpty
         ? "Your Cart is Empty, Add items to Cart".text.xl3.makeCentered()
         : ListView.builder(
@@ -62,10 +60,7 @@ class __CartListState extends State<_CartList> {
             itemBuilder: (context, index) => ListTile(
               leading: Icon(Icons.done),
               trailing: IconButton(
-                onPressed: () {
-                  _cart.remove(_cart.items[index]);
-                  setState(() {});
-                },
+                onPressed: () => RemoveMutation(item: _cart.items[index]),
                 icon: Icon(Icons.remove_circle_outline),
               ),
               title: _cart.items[index].name.text.make(),
